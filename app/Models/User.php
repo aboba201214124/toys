@@ -42,10 +42,6 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
-        'login',
-        'password',
-    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -69,17 +65,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    protected $guarded = ['id'];
+    public $timestamps = false;
 
-    public function products()
-    {
-        return $this->belongsToMany(Product::class, 'products');
-    }
-    public function cart()
-    {
-         return $this->belongsToMany(Product::class, 'carts')->withPivot('quantity');
-    }
-    public function order()
-    {
-        return $this->hasMany(Order::class);
-    }
 }

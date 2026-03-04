@@ -15,13 +15,13 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'login' => "required|exists:users",
+            'email' => "required|exists:users",
             'password' => "required",
         ], [
-                'login.exists' => 'Такой логин не существует'
+                'email.exists' => 'Такой логин не существует'
             ]
         );
-        if (!Auth::attempt(['login' => $request->login, 'password' => $request->password])) {
+        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->back()->withErrors([
                 'auth' => 'Неверный логин или пароль'
             ]);

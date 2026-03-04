@@ -15,7 +15,7 @@
         <div class="header-top">
             <div>
                 <a href="/" class="logo">
-                    <img src="img/icons/lightning.svg" alt="Молния">
+                    <img src="{{asset('img/icons/lightning.svg')}}" alt="Молния">
                     <h1>Господин Ребёнок</h1>
                 </a>
 
@@ -30,12 +30,32 @@
                     <a href="/categories">Категории</a>
                     <a href="/contacts">Контакты</a>
                 </nav>
-
+                @auth()
+                    <a href="/cart">
                 <div class="cart" id="cart">
-                    <img src="img/icons/cart.svg" alt="Корзина">
+                    <img src="{{asset('img/icons/cart.svg')}}" alt="Корзина">
                     <p>Корзина</p>
                     <div class="quantity-of-products"></div>
                 </div>
+                    </a>
+                    <a href="/logout">
+                    <div class="cart" id="cart">
+                        <p>Выход</p>
+                    </div>
+                    </a>
+                @endauth
+                @guest()
+                    <a href="/login">
+                        <div class="cart" id="cart">
+                            <p>Вход</p>
+                        </div>
+                    </a>
+                    <a href="/register">
+                        <div class="cart" id="cart">
+                            <p>Регистрация</p>
+                        </div>
+                    </a>
+                @endguest
             </div>
         </div>
 
