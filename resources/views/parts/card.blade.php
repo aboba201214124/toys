@@ -5,6 +5,6 @@
     <div class="content">
         <h3>{{$product->name}}</h3>
         <p class="price">{{$product->price}} р.</p>
-        <button class="btn add-to-cart">В корзину</button>
+        <a href="/cart/add/{{$product->id}}"><button class="btn add-to-cart">В корзину</button></a>
     </div>
 </div>

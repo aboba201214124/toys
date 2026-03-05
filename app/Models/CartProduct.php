@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class CartProduct extends Model
 {
-    //
+    protected $guarded = ['id'];
+    public $timestamps = false;
+    public function product() {
+        return $this->belongsTo(Product::class);
+    }
 }

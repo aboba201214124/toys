@@ -1,4 +1,7 @@
 @extends('theme')
+@section('title')
+    <title>Главная</title>
+@endsection
 @section('banner')
     <section class="banner">
         <h1>🎪 Добро пожаловать в "Господин Ребёнок"! 🎁</h1>

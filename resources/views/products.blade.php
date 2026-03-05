@@ -1,6 +1,6 @@
 @extends('theme')
 @section('title')
-    <title>Категории</title>
+    <title>товары</title>
 @endsection
 @section('categories')
     <div class="header-bottom">

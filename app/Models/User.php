@@ -67,5 +67,9 @@ class User extends Authenticatable
     }
     protected $guarded = ['id'];
     public $timestamps = false;
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
 
 }

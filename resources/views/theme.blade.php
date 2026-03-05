@@ -35,7 +35,8 @@
                 <div class="cart" id="cart">
                     <img src="{{asset('img/icons/cart.svg')}}" alt="Корзина">
                     <p>Корзина</p>
-                    <div class="quantity-of-products"></div>
+
+                    <div class="cart-count">{{Auth::user()->cart->products()->sum('cart_products.count')}}</div>
                 </div>
                     </a>
                     <a href="/logout">

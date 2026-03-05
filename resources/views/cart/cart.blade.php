@@ -1,12 +1,16 @@
 @extends('theme')
+@section('title')
+    <title>Корзина</title>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
             <h2>Корзина </h2>
         </div>
         <div class="container">
-            <a href="/order/create"><button class="btn btn-primary">Перейти к оформлению {{\App\Services\CartServices::count()['sum']}}р.</button></a>
             <a href="/cart/clear"><button class="btn btn-primary">Очистить корзину</button></a>
+            <a href="/order/create"><button class="btn btn-primary">Оформить заказ {{$totalSum}}р.</button></a>
+            <a href="/cart/history"><button class="btn btn-primary">Заказы</button></a>
         </div>
         <table class="table">
             <thead>
@@ -18,13 +22,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach(Auth::user()->cart as $item)
+            @foreach($cartProducts as $item)
             <tr>
-                <td>{{$item->name}}</td>
-                <td><a href="/cart/minus/{{$item->id}}">-</a> {{$item->pivot->quantity}} <a href="/cart/add/{{$item->id}}">+</a></td>
-                <td>{{$item->price}}</td>
-                <td>{{$item->img}}</td>
-                <td><a href="/cart/destroy/{{$item->id}}"><button class="btn btn-primary">Удалить</button></a></td>
+                <td>{{$item->product->name}}</td>
+                <td><a href="/cart/minus/{{$item->product->id}}">-</a> {{$item->count}} <a href="/cart/add/{{$item->product->id}}">+</a></td>
+                <td>{{$item->product->price}}</td>
+                <td>{{$item->product->img}}</td>
+                <td><a href="/cart/destroy/{{$item->product->id}}"><button class="btn btn-primary">Удалить</button></a></td>
             </tr>
             @endforeach
             </tbody>

@@ -882,3 +882,9 @@ hr {
         gap: 10px;
     }
 }
+.cart-count {
+    color: white;
+}
+a {
+    text-decoration: none;
+}
